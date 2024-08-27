@@ -1,0 +1,36 @@
+#include "./row_echelon_form.hpp"
+#include <iostream>
+#include <vector>
+
+int main() {
+    try {
+        Matrix<double> u = Matrix<double>({{1., 0., 0.}, {0., 1., 0.}, {0., 0., 1.}});
+        std::cout << u.row_echelon() << std::endl;
+        // [1.0, 0.0, 0.0]
+        // [0.0, 1.0, 0.0]
+        // [0.0, 0.0, 1.0]
+
+        u = Matrix<double>({{1., 2.}, {3., 4.}});
+        std::cout << u.row_echelon() << std::endl;
+        // [1.0, 0.0]
+        // [0.0, 1.0]
+
+        u = Matrix<double>({{1., 2.}, {2., 4.}});
+        std::cout << u.row_echelon() << std::endl;
+        // [1.0, 2.0]
+        // [0.0, 0.0]
+
+        u = Matrix<double>({{8., 5., -2., 4., 28.}, 
+                            {4., 2.5, 20., 4., -4.},
+                            {8., 5., 1., 4., 17.}});
+        std::cout << u.row_echelon() << std::endl;
+        // [1.0, 0.625, 0.0, 0.0, -12.1666667]
+        // [0.0, 0.0, 1.0, 0.0, -3.6666667]
+        // [0.0, 0.0, 0.0, 1.0, 29.5]
+    }
+    catch(const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+
+    return 0;
+}
