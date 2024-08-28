@@ -80,7 +80,7 @@ class Matrix {
         /*
             EX14: Bonus1    
         */
-        Matrix<K> projection(K fov, K ratio, K near, K far) const;
+        static Matrix<K> projection(K fov, K ratio, K near, K far);
         /*
             Ex15: Bonus2
         */

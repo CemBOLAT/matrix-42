@@ -1,12 +1,12 @@
 name := ex14_bonus1
 
 # Kaynak dosyalarını ve başlık dosyalarını tanımlama
-src := $(wildcard *.cpp) \
-	$(wildcard *.hpp)
+src := $(wildcard *.cpp)
 
 header := $(wildcard *.hpp) \
 	$(wildcard ../base/Matrix/*.hpp) \
-	$(wildcard ../base/Vector/*.hpp)
+	$(wildcard ../base/Vector/*.hpp) \
+	$(wildcard *.hpp)
 
 # Derleyici ve bayraklar
 cxx := g++

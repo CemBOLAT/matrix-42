@@ -163,13 +163,13 @@ Complex<K> &Complex<K>::operator/=(K k) {
 
 template <typename K>
 Complex<K> Complex<K>::abs() const {
-    return Complex(std::sqrt(m_real * m_real + m_imaginary * m_imaginary), 0);
+    return Complex(sqrt(m_real * m_real + m_imaginary * m_imaginary), 0);
 }
 
 template <typename K>
 Complex<K> Complex<K>::sqrt() const {
-    K r = std::sqrt((std::sqrt(m_real * m_real + m_imaginary * m_imaginary) + m_real) / 2);
-    K i = std::sqrt((std::sqrt(m_real * m_real + m_imaginary * m_imaginary) - m_real) / 2);
+    K r = sqrt((sqrt(m_real * m_real + m_imaginary * m_imaginary) + m_real) / 2);
+    K i = sqrt((sqrt(m_real * m_real + m_imaginary * m_imaginary) - m_real) / 2);
     return Complex(r, i);
 }
 

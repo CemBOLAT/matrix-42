@@ -6,24 +6,15 @@
 
 
 template <typename K>
-Matrix<K> Matrix<K>::projection(K fov, K ratio, K near, K far) const
+Matrix<K> Matrix<K>::projection(K fov, K ratio, K near, K far)
 {
-    if (m_rows != 4 || m_cols != 4)
-    {
-        throw std::invalid_argument("Matrix must be 4x4 to calculate the projection matrix");
-    }
-    // Fov is defined in degress,
-    // Ratio is the aspect ratio of the screen
-    // Near is the distance to the near plane
-    // Far is the distance to the far plane
-    // FOV is the field of view in degrees
+    Matrix<K> projection(4, 4);
 
-    K fov_rad = fov * M_PI / 180.0;
-    K 
+    projection(0, 0) = 1 / (tan(fov / 2) * ratio);
+    projection(1, 1) = 1 / tan(fov / 2);
+    projection(2, 2) = -(far + near) / (far - near);
+    projection(2, 3) = -2 * far * near / (far - near);
+    projection(3, 2) = -1;
 
-
-
-
-
-    
+    return projection;
 }
